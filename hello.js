@@ -9,8 +9,12 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.body.events({
-        "keydown #user-input": function(event) {
+    Template.text.onRendered(function() {
+        $("#chat-area").scrollTop(document.getElementById("chat-area").scrollHeight);
+    });
+
+    Template.input.events({
+        "keydown #user-input": function (event) {
             if (event.keyCode === 13 && event.shiftKey === false) {
                 if (!Meteor.userId()) {
                     throw new Meteor.Error("Invalid user!");
@@ -23,30 +27,21 @@ if (Meteor.isClient) {
                 event.preventDefault();
             }
         },
-        "click #send": function() {
-            var e = jQuery.Event("keydown", {keyCode:13, shiftKey: false});
+        "click #send": function () {
+            var e = jQuery.Event("keydown", {keyCode: 13, shiftKey: false});
             $("#user-input").trigger(e);
         }
     });
 
-    //Template.input.helpers({
-    //   //toggleInput: function() {
-    //   //    $(document).ready(function() {
-    //   //        var userInput = document.getElementById("user-input");
-    //   //        var button = document.getElementById("send");
-    //   //        console.log(button == null);
-    //   //        if (Meteor.userId()) {
-    //   //            userInput.placeholder = "Type a message";
-    //   //            userInput.disabled = false;
-    //   //            button.disabled = false;
-    //   //        } else {
-    //   //            userInput.placeholder = "Please log in to chat";
-    //   //            userInput.disabled = true;
-    //   //            button.disabled = true;
-    //   //        }
-    //   //    });
-    //   //}
-    //});
+    Template.input.helpers({
+        disabled: function() {
+            if (!Meteor.userId()) {
+                return {disabled: "disabled"};
+            } else {
+                return null;
+            }
+        }
+    });
 
     Accounts.ui.config({
         passwordSignupFields: "USERNAME_AND_EMAIL"
@@ -87,8 +82,7 @@ if (Meteor.isServer) {
 // Sort by date (try find if there is a better method to do this)
 // Try to save spaces and newlines into mongo
 
-// Start from bottom
-// Try to use dom manipulation instead of 2 separate elements for the submit field
+// Start new input from bottom
 // Change submit button to an icon instead of words
 // Output client's msg locally first
 // Include user email verification

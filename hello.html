@@ -33,9 +33,9 @@
 </template>
 
 <template name="input">
-    <textarea rows="1" class="form-control" id="user-input"></textarea>
-    <span class="input-group-btn">
-        <button id="send" class="btn btn-default" type="button">Go!</button>
-    </span>
-
+        <textarea rows="1" class="form-control" id="user-input"
+        placeholder="{{#if currentUser}}Type a message{{else}}Please log in to chat{{/if}}" {{disabled}}></textarea>
+        <span class="input-group-btn">
+            <button id="send" class="btn btn-default" type="button" {{disabled}}>Go!</button>
+        </span>
 </template>
