@@ -1,0 +1,41 @@
+<head>
+    <title>NUSChat - NUS Anonymous Chat Platform</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fix-top">
+    {{> loginButtons}}
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-2"></div>
+        <div id="chat-area" class="col-sm-12 col-md-8">
+            {{#each messages}}
+                {{> text}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-2"></div>
+        <div class="new-msg col-sm-12 col-md-8">
+            <div class="input-group">
+                {{> input}}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<template name="text">
+    <div class="messages">{{username}} - <span>{{text}}</span></div>
+</template>
+
+<template name="input">
+    <textarea rows="1" class="form-control" id="user-input"></textarea>
+    <span class="input-group-btn">
+        <button id="send" class="btn btn-default" type="button">Go!</button>
+    </span>
+
+</template>
