@@ -9,6 +9,9 @@ if (Meteor.isClient) {
         }
     });
 
+    Template.text.helpers({
+    });
+
     Template.text.onRendered(function() {
         $("#chat-area").scrollTop(document.getElementById("chat-area").scrollHeight);
     });
@@ -62,7 +65,6 @@ Meteor.methods({
             time: new Date()
         });
     }
-
 });
 
 
@@ -75,13 +77,16 @@ if (Meteor.isServer) {
     });
 }
 
-// Make user scroll to bottom of page on load
 // Ensure page doesnt need to be scrollable. (only inner div needs to be scrolled)
+// Change date formatting
 // Add male and female option
 // Support hyperlink
-// Sort by date (try find if there is a better method to do this)
 // Try to save spaces and newlines into mongo
+// Read up more about autopublish and subscription and publish (am i publishing from server database directly?)
 
+
+// Sort by date (try find if there is a better method to do this)
+// Make user scroll to bottom of page on load (make it more efficient)
 // Start new input from bottom
 // Change submit button to an icon instead of words
 // Output client's msg locally first
