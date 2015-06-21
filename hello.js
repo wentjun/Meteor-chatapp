@@ -9,7 +9,16 @@ if (Meteor.isClient) {
         }
     });
 
+
+
+    // Text methods
     Template.text.helpers({
+        isOwner: function() {
+            return Meteor.userId() === this.userId;
+        },
+        getTime: function() {
+            return this.time.toLocaleTimeString().replace(/:\d+ /, ' ');
+        }
     });
 
     Template.text.onRendered(function() {
@@ -36,18 +45,31 @@ if (Meteor.isClient) {
         }
     });
 
+
+
+    // Input methods
     Template.input.helpers({
-        disabled: function() {
-            if (!Meteor.userId()) {
-                return {disabled: "disabled"};
+        setInput: function() {
+            var htmlInput = "<textarea rows='1' class='form-control' id='user-input' placeholder=";
+            if (Meteor.userId()) {
+                return htmlInput + "'Type a message'></textarea>";
             } else {
-                return null;
+                return htmlInput + "'Please log in to chat' disabled></textarea>";
+            }
+        },
+        setButton: function() {
+            var htmlButton = "<button id='send' class='btn btn-default' type='button'";
+            if (Meteor.userId()) {
+                return htmlButton + ">Send!</button>";
+            } else {
+                return htmlButton + " disabled>Send!</button>";
+
             }
         }
     });
 
     Accounts.ui.config({
-        passwordSignupFields: "USERNAME_AND_EMAIL"
+        passwordSignupFields: "USERNAME_ONLY"
     });
 }
 
@@ -60,6 +82,7 @@ Meteor.methods({
             throw new Meteor.Error("Invalid user!");
         }
         Msgs.insert({
+            userId: Meteor.userId(),
             username: Meteor.user().username,
             text: msg,
             time: new Date()
@@ -71,23 +94,24 @@ Meteor.methods({
 if (Meteor.isServer) {
     Meteor.publish("topic", function () {
         return Msgs.find(
-            {},
-            {username: 1, text: 1}
+            //{},
+            //{ fields: {userId: 1, username: 1, text: 1, time:1} }
         );
     });
 }
 
-// Ensure page doesnt need to be scrollable. (only inner div needs to be scrolled)
-// Change date formatting
+// Add animation and color
 // Add male and female option
 // Support hyperlink
 // Try to save spaces and newlines into mongo
-// Read up more about autopublish and subscription and publish (am i publishing from server database directly?)
+// Ensure page doesnt need to be scrollable. (only inner div needs to be scrolled) (may need to use flex box)
 
 
+// Try to add a loading screen
+// On phone enter doesnt make new line, it sends msgs
 // Sort by date (try find if there is a better method to do this)
 // Make user scroll to bottom of page on load (make it more efficient)
-// Start new input from bottom
+// Start new output from bottom of the msg-output div
 // Change submit button to an icon instead of words
 // Output client's msg locally first
 // Include user email verification
@@ -96,4 +120,7 @@ if (Meteor.isServer) {
 // Enable file sharing
 // Make homepage login page
 // Create page for 404 errors
-// add tab index
+// add tab index (ie pressing tab brings user to the next useful div)
+// Add login logout display message feature
+
+//Tidy up code

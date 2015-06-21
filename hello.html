@@ -29,13 +29,34 @@
 </body>
 
 <template name="text">
-    <div class="messages">{{username}}<span>{{text}} <br /><small>{{time}}</small></span></div>
+    <div class="messages row">
+        {{#if isOwner}}
+            <div class="col-md-10 col-sm-10">
+                <div class="text-msg-user">
+                    {{text}}<br/>
+                    <span class="time">{{getTime}}</span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <span class="username">{{username}}</span>
+            </div>
+        {{else}}
+            <div class="col-md-2 col-sm-2">
+                <span class="username">{{username}}</span>
+            </div>
+            <div class="col-md-10 col-sm-10">
+                <div class="text-msg">
+                    {{text}}<br/>
+                    <span class="time">{{getTime}}</span>
+                </div>
+            </div>
+        {{/if}}
+    </div>
 </template>
 
 <template name="input">
-        <textarea rows="1" class="form-control" id="user-input"
-        placeholder="{{#if currentUser}}Type a message{{else}}Please log in to chat{{/if}}" {{disabled}}></textarea>
+        {{{setInput}}}
         <span class="input-group-btn">
-            <button id="send" class="btn btn-default" type="button" {{disabled}}>Go!</button>
+            {{{setButton}}}
         </span>
 </template>
