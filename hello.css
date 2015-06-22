@@ -4,6 +4,10 @@ body {
     background-color: black;
 }
 
+.navbar-nav {
+    float: right;
+}
+
 #chat-area {
     background-color: black;
     height: 400px;
@@ -35,9 +39,14 @@ textarea {
     /*border: 3px solid cornsilk;*/
 }
 
+.text {
+    max-width: 100%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
 .text-msg {
     position: relative;
-    word-wrap: break-word;
     max-width: 100%;
     margin: 0 0 25px 0;
     float: left;
@@ -51,7 +60,6 @@ textarea {
 
 .text-msg-user {
     position: relative;
-    word-wrap: break-word;
     max-width: 100%;
     margin: 0 0 25px 0;
     float: right;

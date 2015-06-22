@@ -98,29 +98,35 @@ if (Meteor.isServer) {
             //{ fields: {userId: 1, username: 1, text: 1, time:1} }
         );
     });
+
+    Meteor.startup(function() {
+        Msgs._ensureIndex( { time: 1 } ); // Not sure if this is helping
+    });
 }
 
 // Add animation and color
-// Add male and female option
 // Support hyperlink
-// Try to save spaces and newlines into mongo
 // Ensure page doesnt need to be scrollable. (only inner div needs to be scrolled) (may need to use flex box)
+// Load first 30 msgs only. Load more on request
+// Add login logout display message feature
+
+
+// Account:
+// Configure male and female
+// Include user email verification
+// Make homepage login page
 
 
 // Try to add a loading screen
 // On phone enter doesnt make new line, it sends msgs
-// Sort by date (try find if there is a better method to do this)
 // Make user scroll to bottom of page on load (make it more efficient)
 // Start new output from bottom of the msg-output div
-// Change submit button to an icon instead of words
 // Output client's msg locally first
-// Include user email verification
 // Add channels
 // Add display pictures
 // Enable file sharing
-// Make homepage login page
 // Create page for 404 errors
-// add tab index (ie pressing tab brings user to the next useful div)
-// Add login logout display message feature
 
+// Change submit button to an icon instead of words
+// add tab index (ie pressing tab brings user to the next useful div)
 //Tidy up code
