@@ -104,29 +104,34 @@ if (Meteor.isServer) {
     });
 }
 
-// Add animation and color
-// Support hyperlink
-// Ensure page doesnt need to be scrollable. (only inner div needs to be scrolled) (may need to use flex box)
-// Load first 30 msgs only. Load more on request
-// Add login logout display message feature
-
-
-// Account:
-// Configure male and female
-// Include user email verification
-// Make homepage login page
-
-
-// Try to add a loading screen
-// On phone enter doesnt make new line, it sends msgs
-// Make user scroll to bottom of page on load (make it more efficient)
-// Start new output from bottom of the msg-output div
-// Output client's msg locally first
-// Add channels
-// Add display pictures
-// Enable file sharing
-// Create page for 404 errors
-
-// Change submit button to an icon instead of words
-// add tab index (ie pressing tab brings user to the next useful div)
-//Tidy up code
+ //Add animation and color
+ //Support hyperlink
+ //Ensure page doesnt need to be scrollable. (only inner div needs to be scrolled) (may need to use flex box)
+ //Load first 30 msgs only. Load more on request
+ //Add login logout display message feature
+ //
+ //
+ //Account:
+ //Configure male and female
+ //Include user email verification
+ //Make homepage login page
+ //
+ //speech bubble before and after inherit color
+ //Try to add a loading screen
+ //On phone enter doesnt make new line, it sends msgs
+ //Make user scroll to bottom of page on load (make it more efficient)
+ //Start new output from bottom of the msg-output div
+ //Output client's msg locally first
+ //Add channels
+ //Add display pictures
+ //Enable file sharing
+ //Create page for 404 errors
+ //Include admin account
+ //
+ //
+ //format scrollbar
+ //remove extra space from speech bubble when breaking into new line
+ //fix problem where chatbox scroll shift up after resizing the window
+ //Change submit button to an icon instead of words
+ //add tab index (ie pressing tab brings user to the next useful div)
+ //Tidy up code

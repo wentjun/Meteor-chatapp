@@ -6,7 +6,7 @@
 
 <body>
 <nav class="navbar navbar-default">
-    <div class="" container-fluid>
+    <div class="container-fluid">
         <div class="navbar-header">
             <a href="#" class="navbar-brand">NUSCHAT</a>
         </div>
@@ -19,7 +19,10 @@
 </nav>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-md-2"></div>
+        <div class="col-xs-12 col-md-2">
+            <!--Channel side bar to be added here change to dropdown
+            in mobile phones-->
+        </div>
         <div id="chat-area" class="col-xs-12 col-md-8">
             {{#each messages}}
                 {{> text}}
