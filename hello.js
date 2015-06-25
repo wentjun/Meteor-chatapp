@@ -104,6 +104,13 @@ if (Meteor.isServer) {
     });
 }
 
+
+
+ //!!!!!!******SPLIT TEMPLATE INTO SMALLER CHUNKS FOR MORE EFFICIENT PERFORMANCE
+ // Find vs fetch
+
+
+
  //Add animation and color
  //Support hyperlink
  //Ensure page doesnt need to be scrollable. (only inner div needs to be scrolled) (may need to use flex box)
