@@ -5,39 +5,77 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default">
+
+<div id="wrapper">
+
+    <!--Channels sidebar-->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">Select Channel</li>
+            <li><a href="#">#General</a></li>
+            <li><a href="#">#Marketplace</a></li>
+            <li><a href="#">#Events</a></li>
+            <li><a href="#">#LookingFor</a></li>
+        </ul>
+    </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">NUSCHAT</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="#"><a href="#menu-toggle" id="menu-toggle"> <span class="glyphicon glyphicon-th"></span></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"> Menu Item 1</a></li>
+                    <li class="#"><a href="#"> Menu Item 2</a></li>
+                    <li class="#"><a href="#"> Menu Item 3</a></li>
+                    <li class="#"><a href="#">{{> loginButtons align="right"}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="#" class="navbar-brand">NUSCHAT</a>
+        <div class="row">
+            <div class="col-xs-12 col-md-2">
+              <!--Channel side bar to be added here change to dropdown
+              in mobile phones-->
+            </div>
+            <div id="chat-area" class="col-xs-12 col-md-8">
+                {{#each messages}}
+                    {{> text}}
+                {{/each}}
+            </div>
         </div>
-        <div>
-            <ul class="nav navbar-nav">
-                <li>{{> loginButtons align="right"}}</li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-md-2">
-            <!--Channel side bar to be added here change to dropdown
-            in mobile phones-->
-        </div>
-        <div id="chat-area" class="col-xs-12 col-md-8">
-            {{#each messages}}
-                {{> text}}
-            {{/each}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-2"></div>
-        <div class="new-msg col-xs-12 col-md-8">
-            <div class="input-group">
-                {{> input}}
+        <div class="row">
+            <div class="col-xs-12 col-md-2"></div>
+            <div class="new-msg col-xs-12 col-md-8">
+                <div class="input-group">
+                    {{> input}}
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+
 </body>
 
 <template name="text">
